@@ -25,5 +25,5 @@ Tìm đường đi ngắn nhất bằng cách thử tất cả các hoán vị c
 
 ## Cách chạy
 ```bash
-python brute_force_tsp.py
+python BruteForce.py
 ```
