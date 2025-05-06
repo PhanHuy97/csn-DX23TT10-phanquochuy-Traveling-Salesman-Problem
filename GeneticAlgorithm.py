@@ -8,6 +8,13 @@ def create_initial_population(size, num_cities):
         population.append(individual)
     return population
 
+def calculate_distance(individual, distance_matrix):
+    distance = 0
+    for i in range(len(individual) - 1):
+        distance += distance_matrix[individual[i]][individual[i + 1]]
+    distance += distance_matrix[individual[-1]][individual[0]]  # Quay về điểm xuất phát
+    return distance
+
 def fitness(individual, distance_matrix):
     return 1 / calculate_distance(individual, distance_matrix)
 
@@ -58,6 +65,14 @@ def genetic_algorithm_tsp(distance_matrix, pop_size=100, generations=500, mutati
     return best_individual, best_distance
 
 # Ví dụ sử dụng
+distance_matrix = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
 path, distance = genetic_algorithm_tsp(distance_matrix)
+
 print("Đường đi ngắn nhất (Genetic Algorithm):", path)
 print("Chi phí:", distance)

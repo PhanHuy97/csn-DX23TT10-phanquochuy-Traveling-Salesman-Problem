@@ -19,6 +19,13 @@ def calculate_bound(node, distance_matrix, n):
             cost += min_edge
     return cost
 
+distance_matrix = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
 def branch_and_bound_tsp(distance_matrix):
     n = len(distance_matrix)
     pq = []
